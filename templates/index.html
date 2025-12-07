@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKD Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='kidney.png') }}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="brand">
+        <img src="{{ url_for('static', filename='kidney.png') }}" class="logo">
+        <h1>CKD Prediction System</h1>
+        <p class="subtext">Early Chronic Kidney Disease Risk Assessment</p>
+    </div>
+
+    <nav class="nav">
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<main class="container">
+     <!-- FORM SECTION -->
+    <section class="form-card">
+        <h3>Enter patient details</h3>
+
+        <form action="/predict" method="POST">
+
+            <!-- GRID FORM START -->
+            <div class="grid-form">
+
+                <!-- LEFT COLUMN -->
+                <div class="col">
+                    <label>Age</label>
+                    <input type="number" name="age" required>
+
+                    <label>Red Blood Cells</label>
+                    <select name="red_blood_cells">
+                        <option value="0">Normal</option>
+                        <option value="1">Abnormal</option>
+                    </select>
+
+                    <label>Pus Cell</label>
+                    <select name="pus_cell">
+                        <option value="0">Normal</option>
+                        <option value="1">Abnormal</option>
+                    </select>
+
+                    <label>Blood Glucose (Random)</label>
+                    <input type="number" name="blood_glucose_random" required>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="col">
+                    <label>Blood Urea</label>
+                    <input type="number" name="blood_urea" required>
+
+                    <label>Pedal Edema</label>
+                    <select name="pedal_edema">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label>Anemia</label>
+                    <select name="anemia">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label>Diabetes Mellitus</label>
+                    <select name="diabetesmellitus">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label>Coronary Artery Disease</label>
+                    <select name="coronary_artery_disease">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+            </div> <!-- END GRID FORM -->
+
+            <!-- BUTTON FIXED & CENTERED -->
+            <div class="form-footer">
+                <button type="submit" class="btn predict-btn">Predict</button>
+            </div>
+
+        </form>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© CKD Prediction System</p>
+</footer>
+
+</body>
+</html>
+
+
+   
